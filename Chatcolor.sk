@@ -1,0 +1,101 @@
+	# EPISODE 1 || /chatcolor
+
+	# Make sure to subscribe :)
+
+on chat:
+	cancel event
+	if {Color} is not set:
+		set {Color} to "&7"
+	send formatted "%player's prefix%&7%player% &8» %{color}%%message%" to all players
+
+
+command /chatcolor <text>:
+	permission: Chatcolor
+	permission message: &8[&e&lERROR&8] &7You don't have permission to use chat color!
+	trigger:
+		if arg-1 is not "$1" or "$2" or "$3" or "$4" or "$5" or "$6" or "$7" or "$8" or "$9" or "$a" or "$b" or "$c" or "$d" or "$e" or "$f" or "$l" or "off":
+			send "&8| &7Invalid color code."
+		else if arg-1 is "$1":
+			set {Color} to "&1"
+			send "&f"
+			send "&8>> &7Your chat color has been set to &1Dark Blue&7!"
+			send "&f" 
+		else if arg-1 is "$2":
+			set {Color} to "&2"
+			send "&f"
+			send "&8>> &7Your chat color has been set to &2Dark Green&7!"
+			send "&f" 
+		else if arg-1 is "$3":
+			set {Color} to "&3"
+			send "&f"
+			send "&8>> &7Your chat color has been set to &3Dark Aqua&7!"
+			send "&f" 
+		else if arg-1 is "$4":
+			set {Color} to "&4"
+			send "&f"
+			send "&8>> &7Your chat color has been set to &4Dark Red&7!"
+			send "&f" 
+		else if arg-1 is "$5":
+			set {Color} to "&5"
+			send "&f"
+			send "&8>> &7Your chat color has been set to &5Purple&7!"
+			send "&f" 
+		else if arg-1 is "$6":
+			set {Color} to "&6"
+			send "&f"
+			send "&8>> &7Your chat color has been set to &6Gold&7!"
+			send "&f" 
+		else if arg-1 is "$7":
+			set {Color} to "&7"
+			send "&f"
+			send "&8>> &7Your chat color has been set to &7Gray&7!"
+			send "&f" 
+		else if arg-1 is "$8":
+			set {Color} to "&8"
+			send "&f"
+			send "&8>> &7Your chat color has been set to &8Dark Gray&7!"
+			send "&f" 
+		else if arg-1 is "$9":
+			set {Color} to "&9"
+			send "&f"
+			send "&8>> &7Your chat color has been set to &9Blue&7!"
+			send "&f" 
+		else if arg-1 is "$a":
+			set {Color} to "&a"
+			send "&f"
+			send "&8>> &7Your chat color has been set to &aLight Green&7!"
+			send "&f" 
+		else if arg-1 is "$b":
+			set {Color} to "&b"
+			send "&f"
+			send "&8>> &7Your chat color has been set to &bAqua&7!"
+			send "&f" 
+		else if arg-1 is "$c":
+			set {Color} to "&c"
+			send "&f"
+			send "&8>> &7Your chat color has been set to &cLight Red&7!"
+			send "&f" 
+		else if arg-1 is "$d":
+			set {Color} to "&d"
+			send "&f"
+			send "&8>> &7Your chat color has been set to &dPink&7!"
+			send "&f" 
+		else if arg-1 is "$e":
+			set {Color} to "&e"
+			send "&f"
+			send "&8>> &7Your chat color has been set to &eYellow&7!"
+			send "&f" 
+		else if arg-1 is "$f":
+			set {Color} to "&f"
+			send "&f"
+			send "&8>> &7Your chat color has been set to &fWhite&7!"
+			send "&f"
+		else if arg-1 is "$l":
+			set {Color} to "&f&l"
+			send "&f"
+			send "&8>> &7Your chat color has been set to &f&lBold&7!"
+			send "&f"
+		else if arg-1 is "off":
+			set {Color} to "&7"
+			send "&f"
+			send "&8>> &7Your chat color has been set to default."
