@@ -1,0 +1,50 @@
+# EPISODE 2 || Simple Custom Currency
+
+# Make sure to subscribe :)
+
+on join:
+	if {Balance::%player's uuid%} is not set:
+		set {Balance::%player's uuid%} to 0
+
+command /eco [<text>] [<offline player>] [<integer>]:
+	permission: Currency
+	permission message: &8[&c&lERROR&8] &7Sorry, Looks like you don't have enough permissions to use this command!
+	trigger:
+		if arg-1 is not set:
+			send "&8| &7/eco (Set,Remove,Add,Reset) (Player) (Amount)"
+		else if arg-2 is not set:
+			send "&8| &7You must provide a player!"
+		else if arg-3 is not set:
+			send "&8| &7You must provide an amount to give to %arg-2%&7!"
+		else if arg-1 is "Set":
+			if arg-2 is set:
+				if arg-3 is set:
+					set {Balance::%arg-2's uuid%} to arg-3
+					send "&8| &7You have set %arg-1%&7's Balance to %arg-3%&7!" to player
+		else if arg-1 is "Remove":
+			if arg-2 is set:
+				if arg-3 is set:
+					remove arg-3 from {Balance::%arg-2's uuid%}
+					send "&8| &7You have removed %arg-3% &7From %arg-2%&7's Balance!" to player
+		else if arg-1 is "Add":
+			if arg-2 is set:
+				if arg-3 is set:
+					add arg-3 to {Balance::%arg-2's uuid%}
+					send "&8| &7You have added %arg-3%&7 To %arg-2%&7's Balance!" to player
+		else if arg-1 is "Reset":
+			if arg-2 is set:
+				if arg-3 is not set:
+					set {Balance::%arg-2's uuid%} to 0
+					send "&8| &7You have reset %arg-2%&7's Balance!" to player
+
+command /balance [<player>]:
+	aliases: /bal, /cash, /money
+	trigger:
+		if arg-1 is not set:
+			send "&f"
+			send "&7Your balance is &a%{Balance::%player's uuid%}%&7 Dollars." to player
+			send "&f"
+		else if arg-1 is set:
+			send "&f"
+			send "&7%arg-1%&7's balance is &a%{Balance::%arg-1's uuid%}%&7 Dollars." to player
+			send "&f"	
